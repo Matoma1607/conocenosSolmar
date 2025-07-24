@@ -1,0 +1,322 @@
+/* Variables CSS para el color principal */
+:root {
+    --primary-color: #839996;
+    --primary-dark: #6b7d7a;
+    --primary-light: #9bb5b2;
+    --primary-lighter: #f0f4f3;
+    --text-dark: #2c3e50;
+    --text-muted: #6c757d;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Header personalizado */
+.header-custom {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--primary-lighter) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-lighter) 0%, white 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.fade-in-text {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-text:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.hero-image-container {
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Botones personalizados */
+.btn-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(131, 153, 150, 0.3);
+}
+
+/* Secciones */
+.bg-light-custom {
+    background-color: var(--primary-lighter);
+}
+
+.section-title {
+    color: var(--text-dark);
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Tarjetas de características */
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(131, 153, 150, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: white;
+    font-size: 2rem;
+}
+
+/* Tarjetas de espacios físicos */
+.space-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.space-card:hover {
+    transform: translateY(-8px);
+}
+
+.space-card img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.space-card:hover img {
+    transform: scale(1.05);
+}
+
+.space-info h5 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Tarjetas de sucursales */
+.branch-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.branch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+.branch-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.branch-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.branch-info p {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.branch-info i {
+    color: var(--primary-color);
+    width: 18px;
+}
+
+.service-tag {
+    display: inline-block;
+    background-color: var(--primary-lighter);
+    color: var(--primary-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-bottom: 4px;
+}
+
+.bg-custom {
+    background-color: var(--primary-color) !important;
+}
+
+/* Footer */
+.footer-custom {
+    background-color: var(--primary-dark);
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: white !important;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Menor padding en móvil */
+    }
+    
+    .hero-section {
+        min-height: 60vh;
+        text-align: center;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .nav-link {
+        margin-top: 10px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .branch-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 65px; /* Ajuste para pantallas muy pequeñas */
+    }
+    
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+    
+    .btn-custom {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+    
+    .feature-card,
+    .branch-card {
+        padding: 20px !important;
+    }
+}

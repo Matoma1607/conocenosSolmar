@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conocenos - Óptica Solmar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para iconos -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header-custom py-3 fixed-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 class="logo-text mb-0">
+              <i class="fas fa-eye me-2"></i>
+              Óptica Solmar
+            </h1>
+          </div>
+          <div class="col-md-6 text-end">
+            <nav class="navbar-nav flex-row justify-content-end">
+              <a href="#inicio" class="nav-link me-3">Inicio</a>
+              <a href="#nosotros" class="nav-link me-3">Nosotros</a>
+              <a href="#sucursales" class="nav-link">Sucursales</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h2 class="display-4 fw-bold mb-4 fade-in-text">Conocenos</h2>
+            <p class="lead mb-4 fade-in-text">
+              Más de 20 años cuidando tu visión con la mejor tecnología y
+              atención personalizada
+            </p>
+            <button
+              class="btn btn-custom btn-lg"
+              onclick="scrollToSection('nosotros')"
+            >
+              Descubre más <i class="fas fa-arrow-down ms-2"></i>
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image-container">
+              <img
+                src="https://images.pexels.com/photos/5201993/pexels-photo-5201993.jpeg"
+                alt="Óptica Solmar"
+                class="img-fluid rounded shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-5 bg-light-custom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center mb-5">
+            <h3 class="section-title mb-4">Nuestra Historia</h3>
+            <p class="text-muted mb-4">
+              En Óptica Solmar, nos enorgullecemos de ser líderes en el cuidado
+              visual desde hace más de dos décadas. Fundada con la visión de
+              brindar servicios ópticos de la más alta calidad, nos hemos
+              convertido en la elección preferida de miles de familias que
+              confían en nosotros para el cuidado de su visión.
+            </p>
+            <p class="text-muted mb-4">
+              Nuestro equipo de profesionales altamente capacitados utiliza
+              tecnología de vanguardia para ofrecer exámenes visuales precisos y
+              soluciones ópticas personalizadas. Desde lentes oftálmicos hasta
+              monturas de las mejores marcas internacionales, garantizamos
+              productos de calidad superior respaldados por un servicio
+              excepcional.
+            </p>
+          </div>
+        </div>
+
+        <!-- Características -->
+        <div class="row g-4 mb-5">
+          <div class="col-md-4">
+            <div class="feature-card text-center p-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <h5>Tecnología Avanzada</h5>
+              <p class="text-muted">
+                Equipos de última generación para exámenes precisos y
+                diagnósticos confiables
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card text-center p-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <h5>Profesionales Expertos</h5>
+              <p class="text-muted">
+                Optómetristas certificados con años de experiencia en el cuidado
+                visual
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card text-center p-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-glasses"></i>
+              </div>
+              <h5>Amplio Catálogo</h5>
+              <p class="text-muted">
+                Monturas y lentes de las mejores marcas para todos los estilos y
+                necesidades
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Espacios Físicos -->
+    <section class="py-5">
+      <div class="container">
+        <h3 class="section-title text-center mb-5">Nuestras Instalaciones</h3>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="space-card">
+              <img
+                src="https://images.pexels.com/photos/5752287/pexels-photo-5752287.jpeg"
+                alt="Consultorio"
+                class="img-fluid rounded"
+              />
+              <div class="space-info p-3">
+                <h5>Atención personalizada</h5>
+                <p class="text-muted">
+                  Espacios diseñados para brindar comodidad durante los exámenes
+                  visuales
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="space-card">
+              <img
+                src="https://i.pinimg.com/736x/64/a0/53/64a053882186c6e9ca075d5cc9f3b5e4.jpg"
+                alt="Showroom"
+                class="img-fluid rounded"
+              />
+              <div class="space-info p-3">
+                <h5>Lentes de Contactos</h5>
+                <p class="text-muted">
+                 Soluciones visuales diseñadas para vos. Lentes de contacto que se adaptan a tu estilo de vida
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="space-card">
+              <img
+                src="https://i.pinimg.com/1200x/22/a5/5a/22a55a560334a03322d2cbb756de0cf4.jpg"
+                alt="Laboratorio"
+                class="img-fluid rounded"
+              />
+              <div class="space-info p-3">
+                <h5>Laboratorio Óptico</h5>
+                <p class="text-muted">
+                  Taller propio para montaje y reparación de lentes. Tecnología y experiencia para cuidar tu mirada
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sucursales -->
+    <section id="sucursales" class="py-5 bg-light-custom">
+      <div class="container">
+        <h3 class="section-title text-center mb-5">Nuestras Sucursales</h3>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="branch-card p-4 h-100">
+              <div class="branch-header d-flex align-items-center mb-3">
+                <div class="branch-icon me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h5 class="mb-1">Sucursal Mendoza</h5>
+                  <span class="badge bg-custom">Principal</span>
+                </div>
+              </div>
+              <div class="branch-info">
+                <p class="mb-2">
+                  <i class="fas fa-location-dot me-2"></i>Pcia de Mendoza 555,
+                  San Miguel de Tucumán
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-phone me-2"></i>(+54) 381 421-6166
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-clock me-2"></i>Lun-Vie: 9:00-13:00,
+                  17:00-21:00 Sáb: 9:00-13:00
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-envelope me-2"></i>opticassolmar@solmar.com.ar
+                </p>
+                <div class="branch-services">
+                  <span class="service-tag">Exámenes visuales</span>
+                  <span class="service-tag">Laboratorio</span>
+                  <span class="service-tag">Lentes de contacto</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="branch-card p-4 h-100">
+              <div class="branch-header d-flex align-items-center mb-3">
+                <div class="branch-icon me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h5 class="mb-1">Sucursal 24 de Septiembre</h5>
+                  <span class="badge bg-secondary">Sucursal</span>
+                </div>
+              </div>
+              <div class="branch-info">
+                <p class="mb-2">
+                  <i class="fas fa-location-dot me-2"></i>Av. 24 de Septiembre
+                  522 San Miguel de Tucumán
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-phone me-2"></i>(+54) 381 421-7562
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-clock me-2"></i>Lun-Vie: 9:00-13:00,
+                  17:00-21:00 Sáb: 9:00-13:00
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-envelope me-2"></i>opticassolmar@solmar.com.ar
+                </p>
+                <div class="branch-services">
+                  <span class="service-tag">Monturas</span>
+                  <span class="service-tag">Lentes de sol</span>
+                  <span class="service-tag">Accesorios</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="branch-card p-4 h-100">
+              <div class="branch-header d-flex align-items-center mb-3">
+                <div class="branch-icon me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h5 class="mb-1">Sucursal</h5>
+                  <span class="badge bg-secondary">Sucursal</span>
+                </div>
+              </div>
+              <div class="branch-info">
+                <p class="mb-2">
+                  <i class="fas fa-location-dot me-2"></i>Av. Alem 31, San
+                  Miguel de Tucumán
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-phone me-2"></i>(+54) 381 511-5855
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-clock me-2"></i>Lun-Vie: 9:00-13:00,
+                  17:00-21:00 Sáb: 9:00-13:00
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-envelope me-2"></i>opticassolmar@solmar.com.ar
+                </p>
+                <div class="branch-services">
+                  <span class="service-tag">Exámenes visuales</span>
+                  <span class="service-tag">Monturas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="branch-card p-4 h-100">
+              <div class="branch-header d-flex align-items-center mb-3">
+                <div class="branch-icon me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h5 class="mb-1">Sucursal Concepción</h5>
+                </div>
+              </div>
+              <div class="branch-info">
+                <p class="mb-2">
+                  <i class="fas fa-location-dot me-2"></i>Gral. josé de San
+                  Martin 1269, Concepción
+                </p>
+
+                <p class="mb-2">
+                  <i class="fas fa-clock me-2"></i>Lun-Vie: 9:00-13:00,
+                  17:00-21:00 Sáb: 9:00-13:00
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-envelope me-2"></i>solmarconcepcion@opticasolmar.com.ar
+                </p>
+                <div class="branch-services">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5 class="text-white mb-3">
+              <i class="fas fa-eye me-2"></i>
+              Óptica Solmar
+            </h5>
+            <p class="text-white-50">
+              Cuidando tu visión desde hace más de 20 años
+            </p>
+          </div>
+          <div class="col-md-6 text-end">
+            <div class="social-links">
+              <a href="#" class="text-white-50 me-3"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="text-white-50 me-3"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-white-50"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+            <p class="text-white-50 mt-2 mb-0">
+              &copy; 2025 Óptica Solmar. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personalizado -->
+    <script src="./script.js"></script>
+  </body>
+</html>
