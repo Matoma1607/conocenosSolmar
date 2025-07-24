@@ -1,11 +1,11 @@
 /* Variables CSS para el color principal */
 :root {
     --primary-color: #839996;
-    --primary-dark: #6b7d7a;
-    --primary-light: #9bb5b2;
+    --primary-dark: #839996;
+    --primary-light: #839996;
     --primary-lighter: #f0f4f3;
     --text-dark: #2c3e50;
-    --text-muted: #6c757d;
+    --text-muted: #839996;
 }
 
 /* Estilos generales */
