@@ -19,12 +19,101 @@ body {
 .header-custom {
     background-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Botón hamburguesa personalizado */
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+/* Animación del botón hamburguesa */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 .logo-text {
     color: white;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text-content {
+    color: white;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Estilos del logo principal en header - más estirado y limpio */
+.logo-image {
+    width: 180px;  /* Más ancho para el efecto estirado */
+    height: 60px;   /* Más bajo para crear proporción estirada */
+    object-fit: contain;
+    background-color: transparent; /* Sin fondo */
+    padding: 0; /* Sin padding */
+    border-radius: 10px; 
+    transition: all 0.3s ease;
+    filter: brightness(1.1) contrast(1.05); /* Mejorar visibilidad */
+}
+
+.logo-image:hover {
+    transform: scale(1.03);
+    filter: brightness(1.2) contrast(1.1);
 }
 
 .nav-link {
@@ -270,20 +359,52 @@ html {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     body {
-        padding-top: 70px; /* Menor padding en móvil */
+        padding-top: 80px; /* Ajustado para el header móvil */
+    }
+    
+    .header-custom {
+        min-height: 70px;
+        padding: 8px 0;
     }
     
     .hero-section {
         min-height: 60vh;
         text-align: center;
+        padding-top: 2rem;
     }
     
     .logo-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     
-    .nav-link {
+    .logo-image {
+        width: 120px;
+        height: 42px;
+    }
+    
+    /* Navegación móvil */
+    .navbar-collapse {
+        background-color: var(--primary-color);
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         margin-top: 10px;
+        padding: 0 15px 15px 15px;
+    }
+    
+    .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.1rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 5px;
     }
     
     .feature-icon {
@@ -303,11 +424,20 @@ html {
 
 @media (max-width: 576px) {
     body {
-        padding-top: 65px; /* Ajuste para pantallas muy pequeñas */
+        padding-top: 75px;
+    }
+    
+    .header-custom {
+        min-height: 65px;
+        padding: 5px 0;
+    }
+    
+    .hero-section {
+        padding-top: 1.5rem;
     }
     
     .hero-section .display-4 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .btn-custom {
@@ -318,5 +448,30 @@ html {
     .feature-card,
     .branch-card {
         padding: 20px !important;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+    }
+    
+    .logo-image {
+        width: 100px;
+        height: 35px;
+    }
+    
+    /* Ajustes específicos para móviles pequeños */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .navbar-collapse {
+        margin-top: 5px;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 8px 0;
     }
 }
