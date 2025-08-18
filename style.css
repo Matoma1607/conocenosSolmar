@@ -13,6 +13,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
+    padding-top: 100px;
 }
 
 /* Header personalizado */
@@ -402,7 +403,7 @@ html {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     body {
-        padding-top: 80px; /* Ajustado para el header móvil */
+        padding-top: 90px; /* Ajustado para el header móvil */
     }
     
     .header-custom {
