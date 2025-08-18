@@ -19,28 +19,54 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="header-custom py-3 fixed-top">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
+    <!-- Header -->
+<header class="header-custom py-3 fixed-top">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Logo centrado -->
+      <div class="col-md-4 d-flex justify-content-start">
+        <nav class="navbar-nav flex-row d-none d-md-flex">
+          <a href="#inicio" class="nav-link me-3">Inicio</a>
+          <a href="#nosotros" class="nav-link">Nosotros</a>
+        </nav>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="logo-container">
+          <a href="https://solmar.com.ar/" class="logo-link" target="_blank">
             <h1 class="logo-text mb-0 d-flex align-items-center">
               <img
                 src="./img/logo.jpeg"
                 alt="Logo Óptica Solmar"
-                class="logo-image me-3"
+                class="logo-image"
               />
             </h1>
-          </div>
-          <div class="col-md-6 text-end">
-            <nav class="navbar-nav flex-row justify-content-end">
-              <a href="#inicio" class="nav-link me-3">Inicio</a>
-              <a href="#nosotros" class="nav-link me-3">Nosotros</a>
-              <a href="#sucursales" class="nav-link">Sucursales</a>
-            </nav>
-          </div>
+          </a>
         </div>
       </div>
-    </header>
+      
+      <div class="col-md-4 d-flex justify-content-end">
+        <nav class="navbar-nav flex-row d-none d-md-flex">
+          <a href="#sucursales" class="nav-link">Sucursales</a>
+        </nav>
+        
+        <!-- Botón hamburguesa para móvil -->
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menú móvil colapsable -->
+    <div class="collapse navbar-collapse d-md-none" id="navbarNav">
+      <div class="navbar-nav w-100 text-center mt-3">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#sucursales" class="nav-link">Sucursales</a>
+      </div>
+    </div>
+  </div>
+</header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-section py-5">
@@ -343,7 +369,7 @@
     <!-- Footer -->
     <footer class="footer-custom py-4">
       <div class="container">
-        <div class="row">
+        <div class="row"> 
           <div class="col-md-6">
             <h5 class="text-white mb-3">
               <i class="fas fa-eye me-2"></i>
@@ -352,13 +378,13 @@
           </div>
           <div class="col-md-6 text-end">
             <div class="social-links">
-              <a href="https://www.facebook.com/share/19ASjaAsWq/?mibextid=wwXIfr" class="text-white-50 me-3"
+              <a href="#" class="text-white-50 me-3"
                 ><i class="fab fa-facebook"></i
               ></a>
-              <a href="https://www.instagram.com/opticasolmar?igsh=MTZ0bDBiNDAzcXlnbg==" class="text-white-50 me-3"
+              <a href="#" class="text-white-50 me-3"
                 ><i class="fab fa-instagram"></i
               ></a>
-              <a href="http://wa.me/5493814063170" class="text-white-50"
+              <a href="" class="text-white-50"
                 ><i class="fab fa-whatsapp"></i
               ></a>
             </div>
