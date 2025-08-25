@@ -3,6 +3,8 @@
 // Variables globales
 let isScrolling = false;
 let currentSection = "inicio";
+let lastScrollTop = 0;
+let scrollThreshold = 50; // Píxeles que debe hacer scroll para activar el efecto
 
 // Inicialización cuando el DOM está cargado
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,13 +13,51 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeNavigationEffects();
   initializeBranchCards();
   setupSmoothScrolling();
+  setupNavbarShrinkEffect();
 });
+
+// Función principal para el efecto de navbar que se achica
+function setupNavbarShrinkEffect() {
+  const header = document.querySelector(".header-custom");
+  let ticking = false;
+
+  function updateNavbar() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Agregar o quitar la clase 'scrolled' basado en la posición del scroll
+    if (scrollTop > scrollThreshold) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+    
+    lastScrollTop = scrollTop;
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }
+
+  // Agregar listener de scroll optimizado
+  window.addEventListener("scroll", requestTick, { passive: true });
+  
+  // Aplicar estado inicial
+  updateNavbar();
+}
 
 // Función para desplazamiento suave a secciones
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
   if (element) {
-    const headerHeight = document.querySelector(".header-custom").offsetHeight;
+    const header = document.querySelector(".header-custom");
+    const headerHeight = header.classList.contains("scrolled") 
+      ? 60  // Altura cuando está contraído
+      : 80; // Altura normal
+    
     const elementPosition = element.offsetTop - headerHeight - 20;
 
     window.scrollTo({
@@ -69,30 +109,18 @@ function initializeAnimations() {
     });
 }
 
-// Efectos de scroll
+// Efectos de scroll (simplificado para evitar conflictos)
 function initializeScrollEffects() {
   let ticking = false;
 
   function updateScrollEffects() {
     const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-
-    // Parallax effect en hero section
+    
+    // Parallax effect en hero section (reducido para mejor performance)
     const heroSection = document.querySelector(".hero-section");
-    if (heroSection) {
+    if (heroSection && scrolled < window.innerHeight) {
+      const rate = scrolled * -0.3;
       heroSection.style.transform = `translateY(${rate}px)`;
-    }
-
-    // Cambiar estilo del header al hacer scroll
-    const header = document.querySelector(".header-custom");
-    if (scrolled > 100) {
-      header.classList.add("scrolled");
-      header.style.background = "rgba(255, 255, 255, 0.95)"; // Cambiar de verde a blanco
-      header.style.backdropFilter = "blur(10px)";
-    } else {
-      header.classList.remove("scrolled");
-      header.style.background = "#ffffff"; // Cambiar de verde a blanco
-      header.style.backdropFilter = "none";
     }
 
     ticking = false;
@@ -105,7 +133,7 @@ function initializeScrollEffects() {
     }
   }
 
-  window.addEventListener("scroll", requestTick);
+  window.addEventListener("scroll", requestTick, { passive: true });
 }
 
 // Efectos de navegación
@@ -115,7 +143,9 @@ function initializeNavigationEffects() {
   // Detectar sección activa al hacer scroll
   window.addEventListener("scroll", function () {
     const sections = document.querySelectorAll("section[id]");
-    const scrollPos = window.pageYOffset + 200;
+    const header = document.querySelector(".header-custom");
+    const headerHeight = header.classList.contains("scrolled") ? 60 : 80;
+    const scrollPos = window.pageYOffset + headerHeight + 50;
 
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
@@ -128,12 +158,12 @@ function initializeNavigationEffects() {
           link.classList.remove("active");
           if (link.getAttribute("href") === `#${sectionId}`) {
             link.classList.add("active");
-            link.style.color = "var(--primary-lighter)";
+            link.style.color = "#839996";
           }
         });
       }
     });
-  });
+  }, { passive: true });
 
   // Agregar efecto hover mejorado
   navLinks.forEach((link) => {
@@ -224,7 +254,7 @@ function showBranchDetails(branchName, cardElement) {
 // Contenido detallado por sucursal
 function getBranchDetailContent(branchName) {
   const branchDetails = {
-    "Sucursal Centro": {
+    "Sucursal Mendoza": {
       description:
         "Nuestra sucursal principal ubicada en el corazón de la ciudad, equipada con la más avanzada tecnología para exámenes visuales.",
       services: [
@@ -241,9 +271,9 @@ function getBranchDetailContent(branchName) {
         "WiFi gratuito",
       ],
     },
-    "Sucursal Norte": {
+    "Sucursal 24 de Septiembre": {
       description:
-        "Ubicada en el moderno Shopping Norte, ofrecemos la mayor variedad de monturas y lentes de sol de la región.",
+        "Ubicada estratégicamente para brindar comodidad y accesibilidad a nuestros clientes.",
       services: [
         "Amplio showroom de monturas",
         "Lentes de sol premium",
@@ -258,9 +288,9 @@ function getBranchDetailContent(branchName) {
         "Promociones especiales",
       ],
     },
-    "Sucursal Sur": {
+    "Sucursal Alem": {
       description:
-        "En el tranquilo Barrio Jardín, brindamos atención personalizada en un ambiente relajado y familiar.",
+        "En una ubicación privilegiada, brindamos atención personalizada en un ambiente relajado y familiar.",
       services: [
         "Exámenes visuales",
         "Monturas exclusivas",
@@ -272,23 +302,23 @@ function getBranchDetailContent(branchName) {
         "Ambiente familiar",
         "Atención sin apuros",
         "Especialización en niños",
-        "Jardín exterior",
+        "Estacionamiento disponible",
       ],
     },
-    "Sucursal Este": {
+    "Sucursal Concepción": {
       description:
-        "Próxima apertura en la zona de mayor crecimiento de la ciudad. Será nuestra sucursal más moderna y tecnológica.",
+        "Extendiendo nuestros servicios a Concepción con la misma calidad y atención que nos caracteriza.",
       services: [
-        "Servicios completos (próximamente)",
-        "Tecnología de realidad virtual",
-        "Laboratorio express",
-        "Consultorio de especialidades",
+        "Servicios ópticos completos",
+        "Exámenes de vista",
+        "Monturas variadas",
+        "Lentes de contacto",
       ],
       features: [
-        "Tecnología de vanguardia",
-        "Diseño moderno",
-        "Amplio espacio",
-        "Apertura: Agosto 2025",
+        "Atención local",
+        "Horarios convenientes",
+        "Personal especializado",
+        "Cerca del centro",
       ],
     },
   };
@@ -334,26 +364,25 @@ function getBranchDetailContent(branchName) {
 // Función para contactar sucursal
 function contactBranch(branchName) {
   const phones = {
-    "Sucursal Centro": "(+54) 381 123-4567",
-    "Sucursal Norte": "(+54) 381 789-0123",
-    "Sucursal Sur": "(+54) 381 456-7890",
-    "Sucursal Este": "Próximamente",
+    "Sucursal Mendoza": "5493814216166",
+    "Sucursal 24 de Septiembre": "5493814217562",
+    "Sucursal Alem": "54938132316125",
+    "Sucursal Concepción": "5493814063170",
   };
 
   const phone = phones[branchName];
-  if (phone && phone !== "Próximamente") {
+  if (phone) {
     // Crear enlace de WhatsApp
     const whatsappMessage = encodeURIComponent(
       `Hola, me interesa obtener información sobre los servicios de ${branchName} - Óptica Solmar`
     );
-    const whatsappNumber = phone.replace(/\D/g, ""); // Remover caracteres no numéricos
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/${phone}?text=${whatsappMessage}`;
 
     // Abrir WhatsApp
     window.open(whatsappUrl, "_blank");
   } else {
     alert(
-      "Esta sucursal abrirá próximamente. Manténgase atento a nuestras redes sociales para más información."
+      "Información de contacto no disponible. Por favor, contacte la sucursal principal."
     );
   }
 }
@@ -368,8 +397,8 @@ function setupSmoothScrolling() {
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
-        const headerHeight =
-          document.querySelector(".header-custom").offsetHeight;
+        const header = document.querySelector(".header-custom");
+        const headerHeight = header.classList.contains("scrolled") ? 60 : 80;
         const elementPosition = targetElement.offsetTop - headerHeight - 20;
 
         window.scrollTo({
@@ -430,6 +459,16 @@ window.addEventListener("resize", function () {
   cards.forEach((card) => {
     card.style.transform = "none";
   });
+  
+  // Reajustar navbar si es necesario
+  const header = document.querySelector(".header-custom");
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > scrollThreshold) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });
 
 // Lazy loading para imágenes
@@ -469,5 +508,8 @@ if (isMobileDevice()) {
     hoverElements.forEach((element) => {
       element.style.transition = "transform 0.2s ease";
     });
+
+    // Ajustar threshold de scroll para móviles
+    scrollThreshold = 30;
   });
 }
